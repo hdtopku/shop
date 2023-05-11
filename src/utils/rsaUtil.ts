@@ -2,7 +2,7 @@ import JSEncrypt from 'jsencrypt-ext'
 
 const cryptUtil = new JSEncrypt()
 
-export const encrypt = (str, toBack = false) => {
+export const encrypt = (str: any, toBack = false) => {
 	if (toBack) {
 		cryptUtil.setPublicKey(
 			'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCQaHAL7p/f/DsTtbwSIcQ7CpnPkcoW9FN5CD/pUtljkrx2Nrw7jQ/Tj/1x88kYZbOuwse8jzTo/4fFzGNOh3M8kywoEuFmkJB+enbVG2xwWw5HVJ4fcVYlxbqo5w6ZgqYDA0pnwxyHPvPtCnh3mfNqSNf28fXpFe21ziewwW1+iQIDAQAB'
@@ -14,7 +14,7 @@ export const encrypt = (str, toBack = false) => {
 	}
 	return cryptUtil.encrypt(JSON.stringify(str))
 }
-export const decrypt = (str, fromBack = false) => {
+export const decrypt = (str: any, fromBack = false) => {
 	if (fromBack) {
 		cryptUtil.setPrivateKey(
 			'MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAM1hllVx0rudqBkfFZzK/ky0nRRTJDTKRx72SG+6s1XZCOmhYIZYegvRuNjDIBnT6zHWUh+XAG5newp7JEj+Uhb//8NUrbzfYToNtqpdKU/MV2z+1M0RpGecWFBsyOCMYhS8QQ1+vyPKvgpX1yEXkr2MmZZCLm1xL9ZDzAFwJNqZAgMBAAECgYEAs/AN0Cp7IJkOD4RmYQqQJhAPlyEIlZ+rE/tel1URjeMqpdYXRVz7AKPruS2rUDWU2AMXzEl1vUS4TgR5U+JNc/r71LYaEqcoUDL5XLcfsU2kkels//15br0jRlFwSUC8szaxdZNeTHFYndTbuSLgYPxuOxkP4+wMJs/xREEUcAECQQDwC06Ha49MnQAv39doNkIKSs/ixYwzWo+tPSx68xY5mGA7m1JltSTREbUZKQaNHnBUmFUGx5pVFlw688KsOnmZAkEA2whw1YDYAjLheZGX5Z6CV7kG8j5PtEYY7Y3sXIZs5Q4CkLHyLwm6tTQHEj+TocQDCwNMhjGPAqrv2vUHUUQJAQJBAKEZBX/u2MIzD+ARWtBusY2UvcXUjI4edhRu3L47DCxlLhhy2i62Dlpdhuu209W7mum7Pj0JknMOSaGq3HiX2ekCQQC/VxFSwdpxmUc1LwXVtnHA9kbmKZ7xKecu5rNbZKcONf3xrzGU+9fZ4dhnjZiHUTcjUL9x3ytCNleQHEtHJ7sBAkB9cZCXn61mwVHhXt8sD6OmWhgYZsW3D4DLNmpfTuSoOFqH2fedozEcYJ7nW6VyNDwuPnGKE3t+rNgoxHpR8mFz'
@@ -29,7 +29,7 @@ export const decrypt = (str, fromBack = false) => {
 		return null
 	}
 	try {
-		return JSON.parse(res)
+		return JSON.parse(<string>res)
 	} catch (err) {
 		return res
 	}

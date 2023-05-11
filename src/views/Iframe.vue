@@ -13,7 +13,7 @@ let src = ref()
 onBeforeMount(() => {
 	window.addEventListener(
 		'message',
-		(ev) => {
+		(ev: any) => {
 			src.value = ev.data.src || ''
 		},
 		false

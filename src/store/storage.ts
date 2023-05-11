@@ -13,17 +13,16 @@ class Storage {
 		this._expire = expire
 	}
 
-	set(key, value, expire = null, isEncrypt = true) {
+	set(key: string, value: any, expire: number | null, isEncrypt = true) {
 		const item = { data: value, cTime: Date.now(), expire: expire || this._expire }
 		if (isEncrypt) {
 			sessionStorage.setItem(key, encrypt(item), expire)
 		} else {
-			console.log(key)
 			sessionStorage.setItem(key, JSON.stringify(item), expire)
 		}
 	}
 
-	get(key, isEncrypt = true) {
+	get(key: string, isEncrypt = true) {
 		let item = sessionStorage.getItem(key)
 		if (!item) {
 			return null
@@ -46,7 +45,7 @@ class Storage {
 		}
 	}
 
-	remove(key) {
+	remove(key: string) {
 		sessionStorage.removeItem(key)
 	}
 

@@ -60,7 +60,6 @@ const getIp = () => {
 
 export const saveIp = () => {
 	const location = storage.get('i')
-	console.log(location)
 	if (location?.ip != null) {
 		return
 	}

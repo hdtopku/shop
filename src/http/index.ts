@@ -42,7 +42,7 @@ axios.interceptors.response.use(
 
 function request(url = '', params = {}, type = 'POST') {
 	//设置 url params type 的默认值
-	return new Promise((resolve, reject) => {
+	return new Promise((resolve: any, reject: any) => {
 		let promise
 		if (type.toUpperCase() === 'GET') {
 			promise = axios({
