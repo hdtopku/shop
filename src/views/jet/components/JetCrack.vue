@@ -2,7 +2,7 @@
 	<a-card>
 		<div class="text-center">
 			<a-typography-title mark>请选择需要激活的软件版本</a-typography-title>
-			<a-tabs v-model:activeKey="activeKey" centered type="card" @change="changePane">
+			<a-tabs v-model:activeKey="activeKey" centered type="card" @tab-click="tabClick" @change="changePane">
 				<a-tab-pane v-if="system === 'windows'" key="2020" tab="2017-2020版">
 					<span v-if="loading">资源加载中...</span>
 				</a-tab-pane>
@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import browser from 'browser-tool'
-import { defineEmits, onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const browserInfo = browser()
 
@@ -69,7 +69,6 @@ const getSystem = () => {
 }
 const system = getSystem()
 
-const emit = defineEmits(['query'])
 const changePane = () => {
 	if (activeKey.value === '2022') {
 		showPane2023.value = false
@@ -84,6 +83,9 @@ const changePane = () => {
 		showPane2023.value = true
 		showPane2020.value = false
 	}
+}
+const emit = defineEmits(['query'])
+const tabClick = () => {
 	emit('query')
 }
 onMounted(() => {

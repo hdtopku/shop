@@ -1,5 +1,5 @@
 <template>
-	<a-spin :spinning="spinning">
+	<a-spin tip="加载中..." :spinning="spinning">
 		<div class="iframeContainer">
 			<iframe ref="iframeRef" title="" class="iframe" :src="src" @load="onLoad"></iframe>
 		</div>

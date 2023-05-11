@@ -26,7 +26,7 @@ const getIp = () => {
 		result.operator = res.data[4]
 		result.zipcode = res.data[5]
 		result.areacode = res.data[6]
-		storage.set('i', result, 30 * 24 * 60 * 60)
+		storage.set('i', result)
 		return Promise.resolve(result)
 	}
 	// http

@@ -19,6 +19,7 @@ export default defineConfig({
 	server: {
 		proxy: {
 			'/api': {
+				// target: 'http://j.taojingling.cn:9000/jeecg-boot',
 				target: 'http://localhost:9000/jeecg-boot',
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, ''),

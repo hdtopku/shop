@@ -10,10 +10,13 @@ class Storage {
 	}
 	private _expire: any
 	constructor(expire = null) {
+		if (expire == null) {
+			expire = 30 * 24 * 60 * 60 // 30天
+		}
 		this._expire = expire
 	}
 
-	set(key: string, value: any, expire: number | null, isEncrypt = true) {
+	set(key: string, value: any, expire = null, isEncrypt = true) {
 		const item = { data: value, cTime: Date.now(), expire: expire || this._expire }
 		if (isEncrypt) {
 			sessionStorage.setItem(key, encrypt(item), expire)
