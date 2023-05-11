@@ -1,21 +1,22 @@
 import axios from 'axios'
-import storage from '@/store/storage.ts'
-import browser from 'browser-tool'
 import { encrypt } from '@/utils/rsaUtil'
+import storage from '@/store/storage'
+import browser from 'browser-tool'
 
 // 设置接口超时时间
 axios.defaults.timeout = 6000
 
 // 请求地址，这里是动态赋值的的环境变量，下一篇会细讲，这里跳过
 // axios.defaults.baseURL = import.meta.env.VITE_API_DOMAIN
-axios.defaults.headers.common['i'] = encrypt({ sys: browser(), ip: storage.get('i'), t: new Date().getTime() }, true)
+
 //http request 拦截器
 axios.interceptors.request.use(
 	(config) => {
-		if (!config?.url?.startsWith('http')) {
-			config.baseURL = `/api` /* 根域名 */
-		} else {
+		if (config?.url?.startsWith('http')) {
 			config.baseURL = `` /* 根域名 */
+		} else {
+			config.baseURL = `/api` /* 根域名 */
+			config.headers['i'] = encrypt({ sys: browser(), ip: storage.get('i'), t: new Date().getTime() }, true)
 		}
 		return config
 	},
