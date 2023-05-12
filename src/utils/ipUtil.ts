@@ -16,11 +16,6 @@ const getIp = () => {
 		.get('https://2023.ipchaxun.com', {})
 		.then((res) => {
 			const result = <Ip>{}
-			res = {
-				ret: 'ok',
-				ip: '183.253.210.142',
-				data: ['中国', '福建', '宁德', '寿宁', '移动', '355500', '0593'],
-			}
 			if (res && res.ret === 'ok') {
 				result.ip = res.ip
 				result.country = res.data[0]
