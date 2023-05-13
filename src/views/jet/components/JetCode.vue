@@ -22,12 +22,13 @@
 							<div v-show="!showAlert">点击复制</div>
 						</template>
 						<a-button
+							shape="round"
 							size="large"
 							type="primary"
-							class="animate__animated animate__pulse animate__infinite"
+							class="animate__animated animate__pulse animate__infinite tw-bg-blue-600 tw-mt-2"
 							:loading="loading"
 							@click="handleCopy"
-							>一键复制激活码</a-button
+							>点击复制激活码</a-button
 						>
 					</a-tooltip>
 				</template>
@@ -49,7 +50,7 @@ const handleCopy = () => {
 	showAlert.value = true
 	setTimeout(() => {
 		loading.value = false
-	}, 200)
+	}, 250)
 }
 const visibleChange = () => {
 	setTimeout(() => {
