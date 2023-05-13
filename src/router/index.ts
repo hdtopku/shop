@@ -1,4 +1,5 @@
 import JetB from '@/views/jet/JetB.vue'
+import JetC from '@/views/jet/JetC.vue'
 import Iframe from '@/views/Iframe.vue'
 import Test from '@/views/Test.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -7,6 +8,10 @@ const routes = [
 	{
 		path: '/jb/:code',
 		component: JetB,
+	},
+	{
+		path: '/jc/:code',
+		component: JetC,
 	},
 	{
 		path: '/iframe',

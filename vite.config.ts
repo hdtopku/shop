@@ -17,10 +17,11 @@ export default defineConfig({
 		},
 	},
 	server: {
+		port: 5000,
 		proxy: {
 			'/api': {
-				// target: 'http://j.taojingling.cn:9000/jeecg-boot',
-				target: 'http://localhost:9000/jeecg-boot',
+				target: 'http://j.taojingling.cn:9000/jeecg-boot',
+				// target: 'http://localhost:9000/jeecg-boot',
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, ''),
 			},
