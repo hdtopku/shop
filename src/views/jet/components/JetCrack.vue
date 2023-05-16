@@ -1,6 +1,6 @@
 <template>
 	<a-card>
-		<div class="text-center">
+		<div class="tw-text-center">
 			<a-typography-title mark>请选择需要激活的软件版本</a-typography-title>
 			<a-tabs v-model:activeKey="activeKey" centered type="card" @tab-click="tabClick" @change="changePane">
 				<a-tab-pane v-if="system === 'windows'" key="2020" tab="2017-2020版">
