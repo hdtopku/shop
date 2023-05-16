@@ -1,6 +1,6 @@
 <template>
 	<div class="">
-		<a-card :bordered="false" hoverable class="tw-w-11/12 tw-max-w-screen-sm box tw-text-center">
+		<a-card :bordered="false" hoverable class="tw-cursor-default tw-w-11/12 tw-max-w-screen-sm box tw-text-center">
 			<template #cover>
 				<img
 					class="tw-rounded-l"
@@ -10,6 +10,7 @@
 			</template>
 			<a-card-meta>
 				<template #title>
+					<a-typography-title :level="3" mark>正版激活码，直接粘贴激活，会自动续期</a-typography-title>
 					<a-tooltip :color="showAlert ? '#F6FFEE' : ''" placement="top" @visibleChange="visibleChange">
 						<template #title>
 							<div v-show="showAlert">
@@ -25,7 +26,7 @@
 							shape="round"
 							size="large"
 							type="primary"
-							class="animate__animated animate__pulse animate__infinite tw-bg-blue-600 tw-mt-2"
+							class="animate__animated animate__pulse animate__infinite tw-bg-blue-600"
 							:loading="loading"
 							@click="handleCopy"
 							>点击复制激活码</a-button
