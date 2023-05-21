@@ -10,7 +10,7 @@
 			</template>
 			<a-card-meta>
 				<template #title>
-					<a-typography-title :level="3" mark>正版激活码，直接粘贴激活，会自动续期</a-typography-title>
+					<a-typography-title :level="3" mark>复制粘贴激活，会自动续期</a-typography-title>
 					<a-tooltip :color="showAlert ? '#F6FFEE' : ''" placement="top" @visibleChange="visibleChange">
 						<template #title>
 							<div v-show="showAlert">

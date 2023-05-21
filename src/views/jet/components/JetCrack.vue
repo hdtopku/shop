@@ -19,13 +19,13 @@
 			</a-tabs>
 		</div>
 
-		<div v-show="showPane2023" style="position: absolute; top: 130px; bottom: 100px; width: 100%">
+		<div v-show="showPane2023">
 			<iframe ref="pane2023" title="" src="/iframe" class="iframe"></iframe>
 		</div>
-		<div v-show="showPane2022" style="position: absolute; top: 130px; bottom: 100px; width: 100%">
+		<div v-show="showPane2022">
 			<iframe ref="pane2022" title="" src="/iframe" class="iframe"></iframe>
 		</div>
-		<div v-show="showPane2020" style="position: absolute; top: 130px; bottom: 100px; width: 100%">
+		<div v-show="showPane2020">
 			<iframe ref="pane2020" title="" src="/iframe" class="iframe"></iframe>
 		</div>
 	</a-card>
@@ -130,5 +130,7 @@ onMounted(() => {
 	width: 100%;
 	height: 100vh;
 	border: 0;
+	top: 130px;
+	bottom: 100px;
 }
 </style>
