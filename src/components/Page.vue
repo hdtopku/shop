@@ -4,13 +4,16 @@
 
 <script setup lang="ts">
 import { saveIp } from '@/utils/ipUtil'
-import { onMounted, onUnmounted } from 'vue'
+import { getCurrentInstance, onMounted, onUnmounted } from 'vue'
+
+let instance = getCurrentInstance()
 
 onMounted(() => {
 	window.addEventListener(
 		'focus',
 		() => {
 			// console.log('focus')
+			instance?.proxy?.bus.emit('queryCode')
 		},
 		true
 	)

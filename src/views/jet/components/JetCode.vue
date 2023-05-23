@@ -11,7 +11,7 @@
 			<a-card-meta>
 				<template #title>
 					<a-typography-title :level="3" mark>复制粘贴激活，会自动续期</a-typography-title>
-					<a-tooltip :color="showAlert ? '#F6FFEE' : ''" placement="top" @visibleChange="visibleChange">
+					<a-tooltip :color="showAlert ? '#F6FFEE' : ''" placement="top" @visible-change="visibleChange">
 						<template #title>
 							<div v-show="showAlert">
 								<a-alert banner class="" type="success">
