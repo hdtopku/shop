@@ -10,13 +10,15 @@
 			</template>
 			<a-card-meta>
 				<template #title>
-					<a-typography-title :level="3" mark>复制粘贴激活，会自动续期</a-typography-title>
+					<a-typography-title :level="3" mark>复制粘贴激活码，会自动续期</a-typography-title>
 					<a-tooltip :color="showAlert ? '#F6FFEE' : ''" placement="top" @visible-change="visibleChange">
 						<template #title>
 							<div v-show="showAlert">
 								<a-alert banner class="" type="success">
 									<template #message
-										><span class="tw-animate-pulse tw-animate-bounce">复制成功，粘贴到软件激活</span></template
+										><span class="tw-animate-bounce"
+											>已复制，到软件<span class="tw-text-rose-600 tw-underline">粘贴激活</span></span
+										></template
 									>
 								</a-alert>
 							</div>
@@ -40,14 +42,22 @@
 
 <script setup lang="ts">
 import 'animate.css'
-import { getCurrentInstance, ref } from 'vue'
+import { defineProps, getCurrentInstance, ref, toRefs } from 'vue'
 
 const { proxy } = getCurrentInstance()
+
+type Props = {
+	jetCode: string
+}
+const props = defineProps<Props>()
+const { jetCode } = toRefs(props)
+
 const showAlert = ref(false)
 const loading = ref(false)
+
 const handleCopy = () => {
 	loading.value = true
-	proxy.tool.copy('abcd', false)
+	proxy.tool.copy(jetCode.value, false)
 	showAlert.value = true
 	setTimeout(() => {
 		loading.value = false
