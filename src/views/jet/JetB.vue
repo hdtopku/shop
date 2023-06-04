@@ -25,7 +25,7 @@ const query = () => {
 		codeValid.value = false
 		return
 	}
-	http.post('/c/idc/q/' + route.params.code).then((res) => {
+	http.post('/c/idb/q/' + route.params.code).then((res) => {
 		codeValid.value = res.success
 		if (!codeValid.value) {
 			invalid_codes.push(route.params.code)
