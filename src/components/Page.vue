@@ -21,6 +21,7 @@ onMounted(() => {
 		'blur',
 		() => {
 			// console.log('blur')
+			instance?.proxy?.bus.emit('queryCode')
 		},
 		true
 	)
