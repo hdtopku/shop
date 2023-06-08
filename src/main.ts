@@ -1,4 +1,4 @@
-import '@/utils/devtool.js'
+// import '@/utils/devtool.js'
 import { createApp } from 'vue'
 import App from './App.vue'
 import AntD from 'ant-design-vue'
