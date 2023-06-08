@@ -16,8 +16,6 @@ import browser from 'browser-tool'
 import storage from '@/store/storage'
 import { decrypt } from '@/utils/rsaUtil'
 
-let instance = getCurrentInstance()
-
 const route = useRoute()
 const indicator = h(LoadingOutlined, {
 	style: {
@@ -52,6 +50,7 @@ const device = ref()
 const browserInfo = browser()
 device.value = browserInfo.device.toLowerCase()
 query()
+let instance = getCurrentInstance()
 instance?.proxy?.bus.on('queryCode', query)
 </script>
 

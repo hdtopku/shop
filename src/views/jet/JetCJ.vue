@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { getCurrentInstance, ref } from 'vue'
 import http from '@/http'
 import { useRoute } from 'vue-router'
 import ChaJian from './components/ChaJian.vue'
@@ -37,6 +37,8 @@ const device = ref()
 const browserInfo = browser()
 device.value = browserInfo.device.toLowerCase()
 query()
+let instance = getCurrentInstance()
+instance?.proxy?.bus.on('queryCode', query)
 </script>
 
 <style lang="less" scoped>
