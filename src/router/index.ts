@@ -1,5 +1,6 @@
 import JetCJ from '@/views/jet/JetCJ.vue'
 import JetJH from '@/views/jet/JetJH.vue'
+import JetZH from '@/views/jet/JetZH.vue'
 import Iframe from '@/views/Iframe.vue'
 import Test from '@/views/Test.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -12,6 +13,10 @@ const routes = [
 	{
 		path: '/jjh/:code',
 		component: JetJH,
+	},
+	{
+		path: '/jzh/:code',
+		component: JetZH,
 	},
 	{
 		path: '/iframe',

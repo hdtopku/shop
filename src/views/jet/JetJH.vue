@@ -1,9 +1,9 @@
 <template>
-	<div v-if="codeValid" class="center">
-		<a-spin :indicator="indicator" :spinning="spinning">
+	<a-spin :indicator="indicator" :spinning="spinning">
+		<div v-if="codeValid" class="center">
 			<JiHuoMa :jet-code="jetCode" />
-		</a-spin>
-	</div>
+		</div>
+	</a-spin>
 </template>
 
 <script setup lang="ts">
@@ -32,9 +32,6 @@ const query = () => {
 		codeValid.value = false
 		return
 	}
-	if (!codeValid.value) {
-		spinning.value = true
-	}
 	http.post('/c/idb/q/' + route.params.code).then((res) => {
 		codeValid.value = res.success
 		if (!codeValid.value) {
@@ -56,10 +53,9 @@ instance?.proxy?.bus.on('queryCode', query)
 
 <style lang="less" scoped>
 .center {
-	position: fixed;
-	width: 100%;
-	top: 50%;
-	left: 50%;
-	transform: translateX(-50%) translateY(-50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
 }
 </style>
